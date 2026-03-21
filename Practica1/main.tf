@@ -34,13 +34,21 @@ resource "aws_s3_object" "s3_key" {
   source = local_sensitive_file.myPrivateKey_local.filename
 }
 
-variable "bucket_name" {
-  type        = string
-  description = "Nombre del bucket de la práctica 1"
-  default     = "terralabs-elleryaguilar-practica1-20032026"
-}
-
 output "s3_key_url" {
   description = "URL del objeto en S3"
   value       = "https://${aws_s3_bucket.practica1_bucket.bucket_regional_domain_name}/${aws_s3_object.s3_key.key}"
+}
+
+resource "aws_vpc" "lab_vpc" {
+  cidr_block = "10.0.0.0/16"
+
+  tags = {
+    Name        = "lab-${var.student_name}"
+    Environment = "Dev"
+  }
+}
+
+output "vpc_id" {
+  description = "ID de la VPC"
+  value       = aws_vpc.lab_vpc.id
 }
