@@ -7,9 +7,9 @@ output "instance-id" {
 }
 
 output "instance-name" {
-  value = aws_instance.labfinal_instance.tags["name"]
+  value = aws_instance.labfinal_instance.tags["Name"]
 }
 
-output "instanse-az" {
+output "instance-az" {
   value = aws_instance.labfinal_instance.availability_zone
 }

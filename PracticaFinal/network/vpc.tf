@@ -10,7 +10,7 @@ resource "aws_subnet" "labfinal_subnet" {
   vpc_id     = aws_vpc.labfinal_vpc.id
   cidr_block = var.subnet_cidr
   tags = {
-    owner = tags.owner
+    owner = var.tags.owner
     Name  = "Subnet ${terraform.workspace}"
   }
 }

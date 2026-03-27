@@ -4,7 +4,7 @@ resource "aws_instance" "labfinal_instance" {
   subnet_id     = var.subnet_id
   tags = {
     owner = var.tags.owner
-    Name  = "${terraform-workspace}-vm"
+    Name  = "${terraform.workspace}-vm"
   }
-
+  associate_public_ip_address = true
 }

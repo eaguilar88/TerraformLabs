@@ -7,5 +7,5 @@ variable "subnet_cidr" {
 }
 
 variable "tags" {
-  type = string
+  type = map(string)
 }
